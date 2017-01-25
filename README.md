@@ -2,7 +2,7 @@
 
 ## What Does This Do?
 
-A booted ops-manager plus a whole BOATLOAD of other goodies, including:
+A whole BOATLOAD of goodies, including:
 
 - Friendly DNS entries brought to you by Route53
 - An RDS
@@ -42,7 +42,6 @@ RDS instances take FOREVER to deploy, keep that in mind.
 - secret_key: **(require)** You Amazon secret_key, also used for deployment
 - region: **(required)** Region you want to deploy your resources to
 - availability_zones: **(required)** List of AZs you want to deploy to
-- ops_manager_ami: **(default: ami-2e02454e)**  Ops-manager AMI
 - rds_db_username: **(default: admin)** Username for RDS authentication
 - rds_instance_class: **(default: db.m3.large)** Size of the RDS to deploy
 - rds_instance_count: **(default: 0)** Whether or not you would like an RDS for your deployment
@@ -59,7 +58,6 @@ terraform apply \
   -var "secret_key=secret-access-key" \
   -var "region=us-west-1" \
   -var "availability_zones=[\"us-west-1a\", \"us-west-1b\"] \
-  -var "ops_manager_ami=ami-2e02454e" \
   -var "rds_instance_count=1" \
   -var "dns_suffix=myparentzone.cool.com"
 ```
@@ -73,7 +71,6 @@ terraform destroy \
   -var "secret_key=secret-access-key" \
   -var "region=us-west-1" \
   -var "availability_zones=[\"us-west-1a\", \"us-west-1b\"] \
-  -var "ops_manager_ami=ami-2e02454e" \
   -var "rds_instance_count=1" \
   -var "dns_suffix=myparentzone.cool.com"
 ```
