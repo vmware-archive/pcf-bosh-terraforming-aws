@@ -15,6 +15,44 @@ resource "aws_security_group" "nat_security_group" {
   }
 }
 
+resource "aws_security_group" "bosh_security_group" {
+  name        = "bosh_security_group"
+  description = "Bosh Security Group"
+  vpc_id      = "${aws_vpc.vpc.id}"
+
+  ingress {
+    cidr_blocks = ["0.0.0.0/0"]
+    protocol    = "tcp"
+    from_port   = 2555
+    to_port     = 2555
+  }
+
+  ingress {
+    cidr_blocks = ["0.0.0.0/0"]
+    protocol    = "tcp"
+    from_port   = 22
+    to_port     = 22
+  }
+
+  ingress {
+    cidr_blocks = ["0.0.0.0/0"]
+    protocol    = "tcp"
+    from_port   = 6868
+    to_port     = 6868
+  }
+
+  ingress {
+    cidr_blocks = ["0.0.0.0/0"]
+    protocol    = "tcp"
+    from_port   = 8443
+    to_port     = 8443
+  }
+
+  tags {
+    Name = "${var.env_name}-bosh-security-group"
+  }
+}
+
 resource "aws_security_group" "vms_security_group" {
   name        = "vms_security_group"
   description = "VMs Security Group"
