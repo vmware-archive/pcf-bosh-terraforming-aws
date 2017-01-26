@@ -82,6 +82,14 @@ output "management_subnet_cidrs" {
   value = ["${aws_subnet.management_subnets.*.cidr_block}"]
 }
 
+output "management_subnet_gateways" {
+  value = ["${cidrhost(aws_subnet.management_subnets.*.cidr_block, 1)}"]
+}
+
+output "bosh_director_ips_on_management_subnets" {
+  value = ["${cidrhost(aws_subnet.management_subnets.*.cidr_block, 4)}"]
+}
+
 output "ert_subnet_ids" {
   value = ["${aws_subnet.ert_subnets.*.id}"]
 }
@@ -92,6 +100,10 @@ output "ert_subnet_availability_zones" {
 
 output "ert_subnet_cidrs" {
   value = ["${aws_subnet.ert_subnets.*.cidr_block}"]
+}
+
+output "ert_subnet_gateways" {
+  value = ["${cidrhost(aws_subnet.ert_subnets.*.cidr_block, 1)}"]
 }
 
 output "vpc_id" {
