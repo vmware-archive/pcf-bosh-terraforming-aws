@@ -39,7 +39,7 @@ output "iam_user_access_key" {
 }
 
 output "default_key_name" {
-  value = "${aws_key_pair.default_key_pair}"
+  value = "${aws_key_pair.default_key_pair.key_name}"
 }
 
 output "iam_user_secret_access_key" {
