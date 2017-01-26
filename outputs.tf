@@ -94,18 +94,6 @@ output "ert_subnet_cidrs" {
   value = ["${aws_subnet.ert_subnets.*.cidr_block}"]
 }
 
-output "services_subnet_ids" {
-  value = ["${aws_subnet.services_subnets.*.id}"]
-}
-
-output "services_subnet_availability_zones" {
-  value = ["${aws_subnet.services_subnets.*.availability_zone}"]
-}
-
-output "services_subnet_cidrs" {
-  value = ["${aws_subnet.services_subnets.*.cidr_block}"]
-}
-
 output "vpc_id" {
   value = "${aws_vpc.vpc.id}"
 }
