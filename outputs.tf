@@ -38,6 +38,10 @@ output "iam_user_access_key" {
   value = "${aws_iam_access_key.iam_user_access_key.id}"
 }
 
+output "default_key_name" {
+  value = "${aws_key_pair.default_key_pair}"
+}
+
 output "iam_user_secret_access_key" {
   value = "${aws_iam_access_key.iam_user_access_key.secret}"
 }
@@ -88,6 +92,10 @@ output "management_subnet_gateways" {
 
 output "bosh_director_ips_on_management_subnets" {
   value = ["${cidrhost(aws_subnet.management_subnets.*.cidr_block, 4)}"]
+}
+
+output "bosh_director_external_ip" {
+  value = "${aws_eip.director_external_ip.public_ip}"
 }
 
 output "ert_subnet_ids" {

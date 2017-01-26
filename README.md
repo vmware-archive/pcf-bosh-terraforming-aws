@@ -40,6 +40,7 @@ RDS instances take FOREVER to deploy, keep that in mind.
 - env_name: **(required)** An arbitrary unique name for namespacing resources
 - access_key **(required)** Your Amazon access_key, used for deployment
 - secret_key: **(require)** You Amazon secret_key, also used for deployment
+- public_key: **(require)** Public key to be added to your AWS list of key_pairs
 - region: **(required)** Region you want to deploy your resources to
 - availability_zones: **(required)** List of AZs you want to deploy to
 - rds_db_username: **(default: admin)** Username for RDS authentication
@@ -56,6 +57,7 @@ terraform apply \
   -var "env_name=durian" \
   -var "access_key=access-key-id" \
   -var "secret_key=secret-access-key" \
+  -var "public_key=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV email@example.com" \
   -var "region=us-west-1" \
   -var "availability_zones=[\"us-west-1a\", \"us-west-1b\"] \
   -var "rds_instance_count=1" \
@@ -69,6 +71,7 @@ terraform destroy \
   -var "env_name=durian" \
   -var "access_key=access-key-id" \
   -var "secret_key=secret-access-key" \
+  -var "public_key=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV email@example.com" \
   -var "region=us-west-1" \
   -var "availability_zones=[\"us-west-1a\", \"us-west-1b\"] \
   -var "rds_instance_count=1" \
