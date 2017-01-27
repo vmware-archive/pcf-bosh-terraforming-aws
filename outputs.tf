@@ -18,6 +18,10 @@ output "env_dns_zone_name_servers" {
   value = "${aws_route53_zone.pcf_zone.name_servers}"
 }
 
+output "bosh_director_domain" {
+  value = "${aws_route53_record.director.name}"
+}
+
 output "sys_domain" {
   value = "sys.${var.env_name}.${var.dns_suffix}"
 }
