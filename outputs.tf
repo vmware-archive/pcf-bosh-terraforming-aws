@@ -34,20 +34,32 @@ output "tcp_domain" {
   value = "tcp.${var.env_name}.${var.dns_suffix}"
 }
 
-output "iam_user_name" {
-  value = "${aws_iam_user.iam_user.name}"
-}
-
-output "iam_user_access_key" {
-  value = "${aws_iam_access_key.iam_user_access_key.id}"
-}
-
 output "default_key_name" {
   value = "${aws_key_pair.default_key_pair.key_name}"
 }
 
-output "iam_user_secret_access_key" {
-  value = "${aws_iam_access_key.iam_user_access_key.secret}"
+output "ert_iam_user_name" {
+  value = "${aws_iam_user.ert_iam_user.name}"
+}
+
+output "ert_iam_user_access_key" {
+  value = "${aws_iam_access_key.ert_iam_user_access_key.id}"
+}
+
+output "ert_iam_user_secret_access_key" {
+  value = "${aws_iam_access_key.ert_iam_user_access_key.secret}"
+}
+
+output "bosh_iam_user_name" {
+  value = "${aws_iam_user.bosh_iam_user.name}"
+}
+
+output "bosh_iam_user_access_key" {
+  value = "${aws_iam_access_key.bosh_iam_user_access_key.id}"
+}
+
+output "bosh_iam_user_secret_access_key" {
+  value = "${aws_iam_access_key.bosh_iam_user_access_key.secret}"
 }
 
 output "rds_address" {
