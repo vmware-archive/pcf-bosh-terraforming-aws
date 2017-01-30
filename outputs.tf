@@ -125,3 +125,15 @@ output "region" {
 output "azs" {
   value = "${var.availability_zones}"
 }
+
+output "router_elb" {
+  value = "${aws_elb.web_elb.id}"
+}
+
+output "tcp_elb" {
+  value = "${aws_elb.tcp_elb.id}"
+}
+
+output "ssh_elb" {
+  value = "${aws_elb.ssh_elb.id}"
+}
