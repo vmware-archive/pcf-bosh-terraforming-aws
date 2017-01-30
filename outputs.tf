@@ -98,18 +98,6 @@ output "public_subnet_availability_zones" {
   value = ["${aws_subnet.public_subnets.*.availability_zone}"]
 }
 
-output "management_subnet_ids" {
-  value = ["${aws_subnet.management_subnets.*.id}"]
-}
-
-output "management_subnet_availability_zones" {
-  value = ["${aws_subnet.management_subnets.*.availability_zone}"]
-}
-
-output "management_subnet_cidrs" {
-  value = ["${aws_subnet.management_subnets.*.cidr_block}"]
-}
-
 output "bosh_director_external_ip" {
   value = "${aws_eip.director_external_ip.public_ip}"
 }

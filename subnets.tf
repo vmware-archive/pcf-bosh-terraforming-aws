@@ -9,17 +9,6 @@ resource "aws_subnet" "public_subnets" {
   }
 }
 
-resource "aws_subnet" "management_subnets" {
-  count             = "${length(var.availability_zones)}"
-  vpc_id            = "${aws_vpc.vpc.id}"
-  cidr_block        = "${cidrsubnet("10.0.16.0/26", 2, count.index)}"
-  availability_zone = "${element(var.availability_zones, count.index)}"
-
-  tags {
-    Name = "${var.env_name}-management-subnet${count.index}"
-  }
-}
-
 resource "aws_subnet" "ert_subnets" {
   count             = "${length(var.availability_zones)}"
   vpc_id            = "${aws_vpc.vpc.id}"
