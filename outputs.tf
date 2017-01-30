@@ -137,3 +137,16 @@ output "tcp_elb" {
 output "ssh_elb" {
   value = "${aws_elb.ssh_elb.id}"
 }
+
+
+output "router_elb_security_group_id" {
+  value = "${aws_security_group.elb_security_group.id}"
+}
+
+output "tcp_elb_security_group_id" {
+  value = "${aws_security_group.tcp_elb_security_group.id}"
+}
+
+output "ssh_elb_security_group_id" {
+  value = "${aws_security_group.ssh_elb_security_group.id}"
+}
