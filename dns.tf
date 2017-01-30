@@ -41,3 +41,15 @@ resource "aws_route53_record" "tcp" {
 
   records = ["${aws_elb.tcp_elb.dns_name}"]
 }
+
+resource "aws_route53_record" "pcf_zone_ns_record" {
+  /* If the parent_hosted_zone_id is non-empty, create this record */
+  count = "${min(length(split("", var.parent_hosted_zone_id)),1)}"
+
+  zone_id = "${var.parent_hosted_zone_id}"
+  name    = "${aws_route53_zone.pcf_zone.name}"
+  type    = "NS"
+  ttl     = 300
+
+  records = ["${aws_route53_zone.pcf_zone.name_servers}"]
+}

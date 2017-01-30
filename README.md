@@ -46,6 +46,7 @@ RDS instances take FOREVER to deploy, keep that in mind.
 - rds_db_username: **(default: admin)** Username for RDS authentication
 - rds_instance_class: **(default: db.m3.large)** Size of the RDS to deploy
 - rds_instance_count: **(default: 0)** Whether or not you would like an RDS for your deployment
+- parent_hosted_zone_id: **(default: "")** Optionally associate generated hosted zone with provided zone id
 - dns_suffix: **(required)** Domain to add environment subdomain to
 
 ## Running
