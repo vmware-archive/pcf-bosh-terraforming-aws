@@ -23,8 +23,8 @@ resource "aws_security_group" "bosh_security_group" {
   ingress {
     cidr_blocks = ["0.0.0.0/0"]
     protocol    = "tcp"
-    from_port   = 2555
-    to_port     = 2555
+    from_port   = 25555
+    to_port     = 25555
   }
 
   ingress {
