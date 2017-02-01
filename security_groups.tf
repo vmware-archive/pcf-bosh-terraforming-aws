@@ -10,6 +10,13 @@ resource "aws_security_group" "nat_security_group" {
     to_port     = 0
   }
 
+  egress {
+    from_port = 0
+    to_port = 0
+    protocol = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   tags {
     Name = "${var.env_name}-nat-security-group"
   }
@@ -79,6 +86,13 @@ resource "aws_security_group" "vms_security_group" {
     to_port     = 0
   }
 
+  egress {
+    from_port = 0
+    to_port = 0
+    protocol = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   tags {
     Name = "${var.env_name}-vms-security-group"
   }
@@ -94,6 +108,13 @@ resource "aws_security_group" "mysql_security_group" {
     protocol    = "tcp"
     from_port   = 3306
     to_port     = 3306
+  }
+
+  egress {
+    from_port = 0
+    to_port = 0
+    protocol = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   tags {
@@ -125,6 +146,13 @@ resource "aws_security_group" "elb_security_group" {
     protocol    = "tcp"
     from_port   = 4443
     to_port     = 4443
+  }
+
+  egress {
+    from_port = 0
+    to_port = 0
+    protocol = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   tags {
@@ -159,6 +187,13 @@ resource "aws_security_group" "tcp_elb_security_group" {
     protocol    = "tcp"
     from_port   = 1024
     to_port     = 1123
+  }
+
+  egress {
+    from_port = 0
+    to_port = 0
+    protocol = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   tags {
