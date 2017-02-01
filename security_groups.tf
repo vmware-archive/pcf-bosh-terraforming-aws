@@ -86,6 +86,13 @@ resource "aws_security_group" "vms_security_group" {
     to_port     = 0
   }
 
+  ingress {
+    self      = true
+    protocol  = "-1"
+    from_port = 0
+    to_port   = 0
+  }
+
   egress {
     from_port = 0
     to_port = 0
@@ -148,6 +155,13 @@ resource "aws_security_group" "elb_security_group" {
     to_port     = 4443
   }
 
+  ingress {
+    self      = true
+    protocol  = "-1"
+    from_port = 0
+    to_port   = 0
+  }
+
   egress {
     from_port = 0
     to_port = 0
@@ -172,6 +186,13 @@ resource "aws_security_group" "ssh_elb_security_group" {
     to_port     = 2222
   }
 
+  ingress {
+    self      = true
+    protocol  = "-1"
+    from_port = 0
+    to_port   = 0
+  }
+
   tags {
     Name = "${var.env_name}-ssh-elb-security-group"
   }
@@ -194,6 +215,13 @@ resource "aws_security_group" "tcp_elb_security_group" {
     to_port = 0
     protocol = "-1"
     cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    self      = true
+    protocol  = "-1"
+    from_port = 0
+    to_port   = 0
   }
 
   tags {
