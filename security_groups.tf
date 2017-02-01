@@ -57,9 +57,9 @@ resource "aws_security_group" "bosh_security_group" {
 
   ingress {
     cidr_blocks = ["10.0.0.0/16"]
-    protocol    = "tcp"
-    from_port   = 8443
-    to_port     = 8443
+    protocol    = "-1"
+    from_port   = 0
+    to_port     = 0
   }
 
   egress {
