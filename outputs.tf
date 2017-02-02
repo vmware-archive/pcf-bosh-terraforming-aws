@@ -1,17 +1,5 @@
-output "ert_buildpacks_bucket" {
-  value = "${aws_s3_bucket.buildpacks_bucket.arn}"
-}
-
-output "ert_droplets_bucket" {
-  value = "${aws_s3_bucket.droplets_bucket.arn}"
-}
-
-output "ert_packages_bucket" {
-  value = "${aws_s3_bucket.packages_bucket.arn}"
-}
-
-output "ert_resources_bucket" {
-  value = "${aws_s3_bucket.resources_bucket.arn}"
+output "cloud_controller_bucket" {
+  value = "${aws_s3_bucket.cloud_controller.arn}"
 }
 
 output "env_dns_zone_name_servers" {

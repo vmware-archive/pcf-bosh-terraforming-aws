@@ -10,10 +10,7 @@ data "template_file" "ert" {
   template = "${file("${path.root}/templates/iam_ert_buckets_policy.json")}"
 
   vars {
-    buildpacks_bucket_arn = "${aws_s3_bucket.buildpacks_bucket.arn}"
-    droplets_bucket_arn   = "${aws_s3_bucket.droplets_bucket.arn}"
-    packages_bucket_arn   = "${aws_s3_bucket.packages_bucket.arn}"
-    resources_bucket_arn  = "${aws_s3_bucket.resources_bucket.arn}"
+    cloud_controller_bucket_arn  = "${aws_s3_bucket.cloud_controller.arn}"
   }
 }
 
