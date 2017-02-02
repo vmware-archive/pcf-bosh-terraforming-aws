@@ -1,5 +1,5 @@
 output "cloud_controller_bucket" {
-  value = "${aws_s3_bucket.cloud_controller.arn}"
+  value = "${aws_s3_bucket.cloud_controller.bucket}"
 }
 
 output "env_dns_zone_name_servers" {
