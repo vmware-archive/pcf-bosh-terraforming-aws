@@ -111,7 +111,7 @@ resource "aws_security_group" "mysql_security_group" {
   vpc_id      = "${aws_vpc.vpc.id}"
 
   ingress {
-    cidr_blocks = ["10.0.0.0/16"]
+    cidr_blocks = ["0.0.0.0/0"]
     protocol    = "tcp"
     from_port   = 3306
     to_port     = 3306
