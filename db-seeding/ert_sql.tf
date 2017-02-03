@@ -23,3 +23,7 @@ resource "mysql_database" "diego" {
 resource "mysql_database" "app_usage_service" {
   name     = "app_usage_service"
 }
+
+output "make_it_work" {
+  value    = "https://github.com/ljfranklin/terraform-resource/issues/26"
+}
